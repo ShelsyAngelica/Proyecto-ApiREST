@@ -1,4 +1,5 @@
 <?php
+// creamos el controlador y los "recursos" para personalizar la salida.
 
 namespace App\Http\Resources\V1;
 
