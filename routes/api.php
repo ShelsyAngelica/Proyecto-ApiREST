@@ -10,5 +10,7 @@ use App\Http\Controllers\Api\V2\PostController AS PostV2;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::apiResource('v1/posts', PostV1::class)->only(['index','show','destroy']);
-Route::apiResource('v2/posts', PostV2::class)->only(['index','show']);
+Route::apiResource('v1/posts', PostV1::class)->only(['index','show','destroy'])->middleware('auth:sanctum');
+Route::apiResource('v2/posts', PostV2::class)->only(['index','show'])->middleware('auth:sanctum');
+
+Route::post('login', [App\Http\Controllers\Api\LoginController::class, 'login'])->name('login');
